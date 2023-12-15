@@ -1,0 +1,48 @@
+﻿<Window x:Class="My_BD.UserForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_BD"
+        mc:Ignorable="d"
+    Title="Просмотр нарушение: Пользователь" Height="620" Width="1153"
+        Background="#FFDEAD"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner" 
+        Icon="H:\Новая папка\My_BD\icon.png">
+    <Grid>
+
+        <DataGrid x:Name="DGCars" AutoGenerateColumns="False"
+                  IsReadOnly="True" 
+                  HorizontalAlignment="Left"
+                  Width="1153" 
+                  Height="450"
+                  RowHeight="50"
+                  RowBackground="#e0ad52"
+                  AlternatingRowBackground="#dcc7a3"
+                  FontSize="17"
+                  FontFamily="Times New Roman">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер автомобиля" Binding="{Binding Номер_автомобиля}" Width="180"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер водительского удостоверения" Binding="{Binding Номер_водительского_удостоверения}" Width="280"></DataGridTextColumn>
+                <DataGridTextColumn Header="Марка" Binding="{Binding Марка}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Модель}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цвет" Binding="{Binding Цвет}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Год выпуска" Binding="{Binding Год_выпуска}" Width="130"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата регистрации в ГАИ" Binding="{Binding Дата_регистрации_в_ГАИ}" Width="130"></DataGridTextColumn>
+                <DataGridTextColumn Header="Данные в архив" Binding="{Binding Данные_в_архив}" Width="130"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  Background="#FFDAB9" 
+                 Content="В меню"
+                 HorizontalAlignment="Center"
+                 Margin="0,518,0,0"
+                 VerticalAlignment="Top"
+                 RenderTransformOrigin="2.957,25.152" 
+                 Height="42"
+                 Width="264"
+                 Click="btnMenuOpen_Click"/>
+        <Label Content="Количество записей:" HorizontalAlignment="Left" Margin="861,542,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="17"/>
+        <Label x:Name="RowCount" Content="" HorizontalAlignment="Left" Margin="1021,542,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.145,0.145" FontFamily="Times New Roman" FontSize="17"/>
+    </Grid>
+</Window>

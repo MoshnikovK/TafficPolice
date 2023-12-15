@@ -1,0 +1,68 @@
+C:\My_Progect\My_BD\My_BD\bin\Debug\My_BD.exe.config
+C:\My_Progect\My_BD\My_BD\bin\Debug\My_BD.exe
+C:\My_Progect\My_BD\My_BD\bin\Debug\My_BD.pdb
+C:\My_Progect\My_BD\My_BD\bin\Debug\EntityFramework.dll
+C:\My_Progect\My_BD\My_BD\bin\Debug\EntityFramework.SqlServer.dll
+C:\My_Progect\My_BD\My_BD\bin\Debug\EntityFramework.xml
+C:\My_Progect\My_BD\My_BD\bin\Debug\EntityFramework.SqlServer.xml
+C:\My_Progect\My_BD\My_BD\bin\Debug\ru\EntityFramework.resources.dll
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.csproj.AssemblyReference.cache
+C:\My_Progect\My_BD\My_BD\obj\Debug\AdminForm.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\Avtorization.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\UserForm.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\App.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD_Content.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD_MarkupCompile.cache
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD_MarkupCompile.lref
+C:\My_Progect\My_BD\My_BD\obj\Debug\AdminForm.baml
+C:\My_Progect\My_BD\My_BD\obj\Debug\Avtorization.baml
+C:\My_Progect\My_BD\My_BD\obj\Debug\UserForm.baml
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.g.resources
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.Properties.Resources.resources
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.csproj.GenerateResource.cache
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.csproj.CoreCompileInputs.cache
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.csproj.CopyComplete
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.exe
+C:\My_Progect\My_BD\My_BD\obj\Debug\My_BD.pdb
+C:\My_Progect\My_BD\My_BD\obj\Debug\UserMenuForm.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\UserMenuForm.baml
+C:\My_Progect\My_BD\My_BD\obj\Debug\AddEditPage.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\AddEditPage.baml
+C:\My_Progect\My_BD\My_BD\obj\Debug\AdminLogirovanie.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\AdminMenuForm.g.cs
+C:\My_Progect\My_BD\My_BD\obj\Debug\AdminLogirovanie.baml
+C:\My_Progect\My_BD\My_BD\obj\Debug\AdminMenuForm.baml
+H:\Новая папка\My_BD\My_BD\bin\Debug\My_BD.exe.config
+H:\Новая папка\My_BD\My_BD\bin\Debug\My_BD.exe
+H:\Новая папка\My_BD\My_BD\bin\Debug\My_BD.pdb
+H:\Новая папка\My_BD\My_BD\bin\Debug\EntityFramework.dll
+H:\Новая папка\My_BD\My_BD\bin\Debug\EntityFramework.SqlServer.dll
+H:\Новая папка\My_BD\My_BD\bin\Debug\EntityFramework.xml
+H:\Новая папка\My_BD\My_BD\bin\Debug\EntityFramework.SqlServer.xml
+H:\Новая папка\My_BD\My_BD\bin\Debug\ru\EntityFramework.resources.dll
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.csprojAssemblyReference.cache
+H:\Новая папка\My_BD\My_BD\obj\Debug\AddEditPage.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\AdminForm.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\AdminLogirovanie.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\AdminMenuForm.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\Avtorization.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\UserForm.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\UserMenuForm.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\App.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD_Content.g.cs
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD_MarkupCompile.cache
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD_MarkupCompile.lref
+H:\Новая папка\My_BD\My_BD\obj\Debug\AddEditPage.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\AdminForm.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\AdminLogirovanie.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\AdminMenuForm.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\Avtorization.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\UserForm.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\UserMenuForm.baml
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.g.resources
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.Properties.Resources.resources
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.csproj.GenerateResource.cache
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.csproj.CoreCompileInputs.cache
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.csproj.CopyComplete
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.exe
+H:\Новая папка\My_BD\My_BD\obj\Debug\My_BD.pdb

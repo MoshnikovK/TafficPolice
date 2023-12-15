@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище MKE_LABModelContainer" CdmEntityContainer="MKE_LABEntities">
+    <EntitySetMapping Name="Автомобили">
+      <EntityTypeMapping TypeName="MKE_LABModel.Автомобили">
+        <MappingFragment StoreEntitySet="Автомобили">
+          <ScalarProperty Name="Код" ColumnName="Код" />
+          <ScalarProperty Name="Номер_автомобиля" ColumnName="Номер_автомобиля" />
+          <ScalarProperty Name="Номер_водительского_удостоверения" ColumnName="Номер_водительского_удостоверения" />
+          <ScalarProperty Name="Марка" ColumnName="Марка" />
+          <ScalarProperty Name="Модель" ColumnName="Модель" />
+          <ScalarProperty Name="Цвет" ColumnName="Цвет" />
+          <ScalarProperty Name="Год_выпуска" ColumnName="Год_выпуска" />
+          <ScalarProperty Name="Дата_регистрации_в_ГАИ" ColumnName="Дата_регистрации_в_ГАИ" />
+          <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Взыскание">
+      <EntityTypeMapping TypeName="MKE_LABModel.Взыскание">
+        <MappingFragment StoreEntitySet="Взыскание">
+          <ScalarProperty Name="Код_взыскания" ColumnName="Код_взыскания" />
+          <ScalarProperty Name="Дата_и_время_нарушения" ColumnName="Дата_и_время_нарушения" />
+          <ScalarProperty Name="Район_совершения_нарушения" ColumnName="Район_совершения_нарушения" />
+          <ScalarProperty Name="Размер_штрафа" ColumnName="Размер_штрафа" />
+          <ScalarProperty Name="Оплачен_штраф_или_не_оплачен" ColumnName="Оплачен_штраф_или_не_оплачен" />
+          <ScalarProperty Name="Срок_лишения_права_управления_автомобилем" ColumnName="Срок_лишения_права_управления_автомобилем" />
+          <ScalarProperty Name="Базовая_величина" ColumnName="Базовая_величина" />
+          <ScalarProperty Name="Личный_номер_инспектора_ДПС" ColumnName="Личный_номер_инспектора_ДПС" />
+          <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Водители">
+      <EntityTypeMapping TypeName="MKE_LABModel.Водители">
+        <MappingFragment StoreEntitySet="Водители">
+          <ScalarProperty Name="Номер_водительского_удостоверения" ColumnName="Номер_водительского_удостоверения" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+          <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Инспекторы_ДПС">
+      <EntityTypeMapping TypeName="MKE_LABModel.Инспекторы_ДПС">
+        <MappingFragment StoreEntitySet="Инспекторы_ДПС">
+          <ScalarProperty Name="Личный_номер_инспектора" ColumnName="Личный_номер_инспектора" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Отделение_ДПС" ColumnName="Отделение_ДПС" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+          <ScalarProperty Name="Электронная_почта" ColumnName="Электронная_почта" />
+          <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Логирование">
+      <EntityTypeMapping TypeName="MKE_LABModel.Логирование">
+        <MappingFragment StoreEntitySet="Логирование">
+          <ScalarProperty Name="Код_записи" ColumnName="Код_записи" />
+          <ScalarProperty Name="Время_входа" ColumnName="Время_входа" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Зашол_или_нет" ColumnName="Зашол_или_нет" />
+          <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Нарушение">
+      <EntityTypeMapping TypeName="MKE_LABModel.Нарушение">
+        <MappingFragment StoreEntitySet="Нарушение">
+          <ScalarProperty Name="Код_нарушения" ColumnName="Код_нарушения" />
+          <ScalarProperty Name="Номер_водительского_удостоверения" ColumnName="Номер_водительского_удостоверения" />
+          <ScalarProperty Name="Вид_нарушения" ColumnName="Вид_нарушения" />
+          <ScalarProperty Name="Штраф_за_нарушение" ColumnName="Штраф_за_нарушение" />
+          <ScalarProperty Name="Предупреждение_сделать_или_не_сделать" ColumnName="Предупреждение_сделать_или_не_сделать" />
+          <ScalarProperty Name="Срок_лишения_права_управления_автомобилем" ColumnName="Срок_лишения_права_управления_автомобилем" />
+          <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Пользователи">
+      <EntityTypeMapping TypeName="MKE_LABModel.Пользователи">
+        <MappingFragment StoreEntitySet="Пользователи">
+          <ScalarProperty Name="Код_пользователя" ColumnName="Код_пользователя" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="Роль" ColumnName="Роль" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

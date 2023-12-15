@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище MKE_LABModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Автомобили">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Номер_автомобиля" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Номер_водительского_удостоверения" Type="int" Nullable="false" />
+          <Property Name="Марка" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Модель" Type="nvarchar" MaxLength="50" />
+          <Property Name="Цвет" Type="nvarchar" MaxLength="30" />
+          <Property Name="Год_выпуска" Type="int" />
+          <Property Name="Дата_регистрации_в_ГАИ" Type="date" Nullable="false" />
+          <Property Name="Данные_в_архив" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Взыскание">
+          <Key>
+            <PropertyRef Name="Код_взыскания" />
+          </Key>
+          <Property Name="Код_взыскания" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Дата_и_время_нарушения" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Район_совершения_нарушения" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Размер_штрафа" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Оплачен_штраф_или_не_оплачен" Type="bit" Nullable="false" />
+          <Property Name="Срок_лишения_права_управления_автомобилем" Type="int" />
+          <Property Name="Базовая_величина" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Личный_номер_инспектора_ДПС" Type="int" Nullable="false" />
+          <Property Name="Данные_в_архив" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Водители">
+          <Key>
+            <PropertyRef Name="Номер_водительского_удостоверения" />
+          </Key>
+          <Property Name="Номер_водительского_удостоверения" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Адрес" Type="nvarchar" MaxLength="100" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="20" />
+          <Property Name="Данные_в_архив" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Инспекторы_ДПС">
+          <Key>
+            <PropertyRef Name="Личный_номер_инспектора" />
+          </Key>
+          <Property Name="Личный_номер_инспектора" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Отделение_ДПС" Type="nvarchar" MaxLength="100" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="20" />
+          <Property Name="Электронная_почта" Type="nvarchar" MaxLength="100" />
+          <Property Name="Данные_в_архив" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Логирование">
+          <Key>
+            <PropertyRef Name="Код_записи" />
+          </Key>
+          <Property Name="Код_записи" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Время_входа" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Логин" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Зашол_или_нет" Type="bit" />
+          <Property Name="Примечание" Type="nvarchar" MaxLength="130" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Нарушение">
+          <Key>
+            <PropertyRef Name="Код_нарушения" />
+          </Key>
+          <Property Name="Код_нарушения" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Номер_водительского_удостоверения" Type="int" Nullable="false" />
+          <Property Name="Вид_нарушения" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Штраф_за_нарушение" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Предупреждение_сделать_или_не_сделать" Type="bit" Nullable="false" />
+          <Property Name="Срок_лишения_права_управления_автомобилем" Type="nvarchar" MaxLength="20" />
+          <Property Name="Данные_в_архив" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Пользователи">
+          <Key>
+            <PropertyRef Name="Код_пользователя" />
+          </Key>
+          <Property Name="Код_пользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Логин" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Роль" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Автомобил__Номер__398D8EEE">
+          <End Role="Водители" Type="Self.Водители" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Автомобили" Type="Self.Автомобили" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Водители">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Principal>
+            <Dependent Role="Автомобили">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Взыскание__Код_в__412EB0B6">
+          <End Role="Нарушение" Type="Self.Нарушение" Multiplicity="1" />
+          <End Role="Взыскание" Type="Self.Взыскание" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Нарушение">
+              <PropertyRef Name="Код_нарушения" />
+            </Principal>
+            <Dependent Role="Взыскание">
+              <PropertyRef Name="Код_взыскания" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Взыскание__Личны__4222D4EF">
+          <End Role="Инспекторы_ДПС" Type="Self.Инспекторы_ДПС" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Взыскание" Type="Self.Взыскание" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Инспекторы_ДПС">
+              <PropertyRef Name="Личный_номер_инспектора" />
+            </Principal>
+            <Dependent Role="Взыскание">
+              <PropertyRef Name="Личный_номер_инспектора_ДПС" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Нарушение__Номер__3C69FB99">
+          <End Role="Водители" Type="Self.Водители" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Нарушение" Type="Self.Нарушение" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Водители">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Principal>
+            <Dependent Role="Нарушение">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище MKE_LABModelContainer">
+          <EntitySet Name="Автомобили" EntityType="Self.Автомобили" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Взыскание" EntityType="Self.Взыскание" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Водители" EntityType="Self.Водители" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Инспекторы_ДПС" EntityType="Self.Инспекторы_ДПС" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Логирование" EntityType="Self.Логирование" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Нарушение" EntityType="Self.Нарушение" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Пользователи" EntityType="Self.Пользователи" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Автомобил__Номер__398D8EEE" Association="Self.FK__Автомобил__Номер__398D8EEE">
+            <End Role="Водители" EntitySet="Водители" />
+            <End Role="Автомобили" EntitySet="Автомобили" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Взыскание__Код_в__412EB0B6" Association="Self.FK__Взыскание__Код_в__412EB0B6">
+            <End Role="Нарушение" EntitySet="Нарушение" />
+            <End Role="Взыскание" EntitySet="Взыскание" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Взыскание__Личны__4222D4EF" Association="Self.FK__Взыскание__Личны__4222D4EF">
+            <End Role="Инспекторы_ДПС" EntitySet="Инспекторы_ДПС" />
+            <End Role="Взыскание" EntitySet="Взыскание" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Нарушение__Номер__3C69FB99" Association="Self.FK__Нарушение__Номер__3C69FB99">
+            <End Role="Водители" EntitySet="Водители" />
+            <End Role="Нарушение" EntitySet="Нарушение" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MKE_LABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Автомобили">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Номер_автомобиля" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Номер_водительского_удостоверения" Type="Int32" Nullable="false" />
+          <Property Name="Марка" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Модель" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Цвет" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Год_выпуска" Type="Int32" />
+          <Property Name="Дата_регистрации_в_ГАИ" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Данные_в_архив" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Водители" Relationship="Self.FK__Автомобил__Номер__398D8EEE" FromRole="Автомобили" ToRole="Водители" />
+        </EntityType>
+        <EntityType Name="Взыскание">
+          <Key>
+            <PropertyRef Name="Код_взыскания" />
+          </Key>
+          <Property Name="Код_взыскания" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Дата_и_время_нарушения" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Район_совершения_нарушения" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Размер_штрафа" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Оплачен_штраф_или_не_оплачен" Type="Boolean" Nullable="false" />
+          <Property Name="Срок_лишения_права_управления_автомобилем" Type="Int32" />
+          <Property Name="Базовая_величина" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Личный_номер_инспектора_ДПС" Type="Int32" Nullable="false" />
+          <Property Name="Данные_в_архив" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Нарушение" Relationship="Self.FK__Взыскание__Код_в__412EB0B6" FromRole="Взыскание" ToRole="Нарушение" />
+          <NavigationProperty Name="Инспекторы_ДПС" Relationship="Self.FK__Взыскание__Личны__4222D4EF" FromRole="Взыскание" ToRole="Инспекторы_ДПС" />
+        </EntityType>
+        <EntityType Name="Водители">
+          <Key>
+            <PropertyRef Name="Номер_водительского_удостоверения" />
+          </Key>
+          <Property Name="Номер_водительского_удостоверения" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ФИО" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Адрес" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Данные_в_архив" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Автомобили" Relationship="Self.FK__Автомобил__Номер__398D8EEE" FromRole="Водители" ToRole="Автомобили" />
+          <NavigationProperty Name="Нарушение" Relationship="Self.FK__Нарушение__Номер__3C69FB99" FromRole="Водители" ToRole="Нарушение" />
+        </EntityType>
+        <EntityType Name="Инспекторы_ДПС">
+          <Key>
+            <PropertyRef Name="Личный_номер_инспектора" />
+          </Key>
+          <Property Name="Личный_номер_инспектора" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ФИО" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Отделение_ДПС" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Электронная_почта" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Данные_в_архив" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Взыскание" Relationship="Self.FK__Взыскание__Личны__4222D4EF" FromRole="Инспекторы_ДПС" ToRole="Взыскание" />
+        </EntityType>
+        <EntityType Name="Логирование">
+          <Key>
+            <PropertyRef Name="Код_записи" />
+          </Key>
+          <Property Name="Код_записи" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Время_входа" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Логин" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Зашол_или_нет" Type="Boolean" />
+          <Property Name="Примечание" Type="String" MaxLength="130" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Нарушение">
+          <Key>
+            <PropertyRef Name="Код_нарушения" />
+          </Key>
+          <Property Name="Код_нарушения" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Номер_водительского_удостоверения" Type="Int32" Nullable="false" />
+          <Property Name="Вид_нарушения" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Штраф_за_нарушение" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Предупреждение_сделать_или_не_сделать" Type="Boolean" Nullable="false" />
+          <Property Name="Срок_лишения_права_управления_автомобилем" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Данные_в_архив" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Взыскание" Relationship="Self.FK__Взыскание__Код_в__412EB0B6" FromRole="Нарушение" ToRole="Взыскание" />
+          <NavigationProperty Name="Водители" Relationship="Self.FK__Нарушение__Номер__3C69FB99" FromRole="Нарушение" ToRole="Водители" />
+        </EntityType>
+        <EntityType Name="Пользователи">
+          <Key>
+            <PropertyRef Name="Код_пользователя" />
+          </Key>
+          <Property Name="Код_пользователя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Логин" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Пароль" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Роль" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Автомобил__Номер__398D8EEE">
+          <End Role="Водители" Type="Self.Водители" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Автомобили" Type="Self.Автомобили" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Водители">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Principal>
+            <Dependent Role="Автомобили">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Взыскание__Код_в__412EB0B6">
+          <End Role="Нарушение" Type="Self.Нарушение" Multiplicity="1" />
+          <End Role="Взыскание" Type="Self.Взыскание" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Нарушение">
+              <PropertyRef Name="Код_нарушения" />
+            </Principal>
+            <Dependent Role="Взыскание">
+              <PropertyRef Name="Код_взыскания" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Взыскание__Личны__4222D4EF">
+          <End Role="Инспекторы_ДПС" Type="Self.Инспекторы_ДПС" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Взыскание" Type="Self.Взыскание" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Инспекторы_ДПС">
+              <PropertyRef Name="Личный_номер_инспектора" />
+            </Principal>
+            <Dependent Role="Взыскание">
+              <PropertyRef Name="Личный_номер_инспектора_ДПС" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Нарушение__Номер__3C69FB99">
+          <End Role="Водители" Type="Self.Водители" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Нарушение" Type="Self.Нарушение" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Водители">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Principal>
+            <Dependent Role="Нарушение">
+              <PropertyRef Name="Номер_водительского_удостоверения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MKE_LABEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Автомобили" EntityType="Self.Автомобили" />
+          <EntitySet Name="Взыскание" EntityType="Self.Взыскание" />
+          <EntitySet Name="Водители" EntityType="Self.Водители" />
+          <EntitySet Name="Инспекторы_ДПС" EntityType="Self.Инспекторы_ДПС" />
+          <EntitySet Name="Логирование" EntityType="Self.Логирование" />
+          <EntitySet Name="Нарушение" EntityType="Self.Нарушение" />
+          <EntitySet Name="Пользователи" EntityType="Self.Пользователи" />
+          <AssociationSet Name="FK__Автомобил__Номер__398D8EEE" Association="Self.FK__Автомобил__Номер__398D8EEE">
+            <End Role="Водители" EntitySet="Водители" />
+            <End Role="Автомобили" EntitySet="Автомобили" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Взыскание__Код_в__412EB0B6" Association="Self.FK__Взыскание__Код_в__412EB0B6">
+            <End Role="Нарушение" EntitySet="Нарушение" />
+            <End Role="Взыскание" EntitySet="Взыскание" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Взыскание__Личны__4222D4EF" Association="Self.FK__Взыскание__Личны__4222D4EF">
+            <End Role="Инспекторы_ДПС" EntitySet="Инспекторы_ДПС" />
+            <End Role="Взыскание" EntitySet="Взыскание" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Нарушение__Номер__3C69FB99" Association="Self.FK__Нарушение__Номер__3C69FB99">
+            <End Role="Водители" EntitySet="Водители" />
+            <End Role="Нарушение" EntitySet="Нарушение" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MKE_LABModelContainer" CdmEntityContainer="MKE_LABEntities">
+          <EntitySetMapping Name="Автомобили">
+            <EntityTypeMapping TypeName="MKE_LABModel.Автомобили">
+              <MappingFragment StoreEntitySet="Автомобили">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="Номер_автомобиля" ColumnName="Номер_автомобиля" />
+                <ScalarProperty Name="Номер_водительского_удостоверения" ColumnName="Номер_водительского_удостоверения" />
+                <ScalarProperty Name="Марка" ColumnName="Марка" />
+                <ScalarProperty Name="Модель" ColumnName="Модель" />
+                <ScalarProperty Name="Цвет" ColumnName="Цвет" />
+                <ScalarProperty Name="Год_выпуска" ColumnName="Год_выпуска" />
+                <ScalarProperty Name="Дата_регистрации_в_ГАИ" ColumnName="Дата_регистрации_в_ГАИ" />
+                <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Взыскание">
+            <EntityTypeMapping TypeName="MKE_LABModel.Взыскание">
+              <MappingFragment StoreEntitySet="Взыскание">
+                <ScalarProperty Name="Код_взыскания" ColumnName="Код_взыскания" />
+                <ScalarProperty Name="Дата_и_время_нарушения" ColumnName="Дата_и_время_нарушения" />
+                <ScalarProperty Name="Район_совершения_нарушения" ColumnName="Район_совершения_нарушения" />
+                <ScalarProperty Name="Размер_штрафа" ColumnName="Размер_штрафа" />
+                <ScalarProperty Name="Оплачен_штраф_или_не_оплачен" ColumnName="Оплачен_штраф_или_не_оплачен" />
+                <ScalarProperty Name="Срок_лишения_права_управления_автомобилем" ColumnName="Срок_лишения_права_управления_автомобилем" />
+                <ScalarProperty Name="Базовая_величина" ColumnName="Базовая_величина" />
+                <ScalarProperty Name="Личный_номер_инспектора_ДПС" ColumnName="Личный_номер_инспектора_ДПС" />
+                <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Водители">
+            <EntityTypeMapping TypeName="MKE_LABModel.Водители">
+              <MappingFragment StoreEntitySet="Водители">
+                <ScalarProperty Name="Номер_водительского_удостоверения" ColumnName="Номер_водительского_удостоверения" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Инспекторы_ДПС">
+            <EntityTypeMapping TypeName="MKE_LABModel.Инспекторы_ДПС">
+              <MappingFragment StoreEntitySet="Инспекторы_ДПС">
+                <ScalarProperty Name="Личный_номер_инспектора" ColumnName="Личный_номер_инспектора" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Отделение_ДПС" ColumnName="Отделение_ДПС" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Электронная_почта" ColumnName="Электронная_почта" />
+                <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Логирование">
+            <EntityTypeMapping TypeName="MKE_LABModel.Логирование">
+              <MappingFragment StoreEntitySet="Логирование">
+                <ScalarProperty Name="Код_записи" ColumnName="Код_записи" />
+                <ScalarProperty Name="Время_входа" ColumnName="Время_входа" />
+                <ScalarProperty Name="Логин" ColumnName="Логин" />
+                <ScalarProperty Name="Зашол_или_нет" ColumnName="Зашол_или_нет" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Нарушение">
+            <EntityTypeMapping TypeName="MKE_LABModel.Нарушение">
+              <MappingFragment StoreEntitySet="Нарушение">
+                <ScalarProperty Name="Код_нарушения" ColumnName="Код_нарушения" />
+                <ScalarProperty Name="Номер_водительского_удостоверения" ColumnName="Номер_водительского_удостоверения" />
+                <ScalarProperty Name="Вид_нарушения" ColumnName="Вид_нарушения" />
+                <ScalarProperty Name="Штраф_за_нарушение" ColumnName="Штраф_за_нарушение" />
+                <ScalarProperty Name="Предупреждение_сделать_или_не_сделать" ColumnName="Предупреждение_сделать_или_не_сделать" />
+                <ScalarProperty Name="Срок_лишения_права_управления_автомобилем" ColumnName="Срок_лишения_права_управления_автомобилем" />
+                <ScalarProperty Name="Данные_в_архив" ColumnName="Данные_в_архив" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Пользователи">
+            <EntityTypeMapping TypeName="MKE_LABModel.Пользователи">
+              <MappingFragment StoreEntitySet="Пользователи">
+                <ScalarProperty Name="Код_пользователя" ColumnName="Код_пользователя" />
+                <ScalarProperty Name="Логин" ColumnName="Логин" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+                <ScalarProperty Name="Роль" ColumnName="Роль" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

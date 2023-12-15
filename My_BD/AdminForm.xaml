@@ -1,0 +1,76 @@
+﻿<Window x:Class="My_BD.AdminForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_BD"
+        mc:Ignorable="d"
+            Title="Просмотр нарушение: Администратор"  Height="620" Width="1360"
+                Background="#FFDEAD"
+                IsVisibleChanged="Window_IsVisibleChanged"
+        WindowStartupLocation="CenterOwner" Icon="H:\Новая папка\My_BD\icon.png" ResizeMode="NoResize">
+    <Grid >
+
+        <DataGrid x:Name="DGCars" AutoGenerateColumns="False"
+                  IsReadOnly="True" 
+                  HorizontalAlignment="Left"
+                  Width="1360" 
+                  Height="450"
+                  RowHeight="50"
+                  RowBackground="#e0ad52"
+                  AlternatingRowBackground="#dcc7a3"
+                  FontSize="17"
+                  FontFamily="Times New Roman">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер автомобиля" Binding="{Binding Номер_автомобиля}" Width="180"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер водительского удостоверения" Binding="{Binding Номер_водительского_удостоверения}" Width="280"></DataGridTextColumn>
+                <DataGridTextColumn Header="Марка" Binding="{Binding Марка}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Модель}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цвет" Binding="{Binding Цвет}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Год выпуска" Binding="{Binding Год_выпуска}" Width="130"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата регистрации в ГАИ" Binding="{Binding Дата_регистрации_в_ГАИ}" Width="130"></DataGridTextColumn>
+                <DataGridTextColumn Header="Данные в архив" Binding="{Binding Данные_в_архив}" Width="130"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEdit" Content="Изменение" Click ="Change_Click" Width="200" Background="#FFDAB9" Foreground="White"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  Background="#FFDAB9" 
+                 Content="В меню"
+                 HorizontalAlignment="Center"
+                 Margin="0,536,0,0"
+                 VerticalAlignment="Top"
+                 RenderTransformOrigin="2.957,25.152" 
+                 Height="42"
+                 Width="264"
+                 Click="btnMenuOpen_Click"/>
+        <Button x:Name="btnAdd"
+                Content="Добавление"
+                Click ="Add_Click"
+                HorizontalAlignment="Left"
+                Margin="47,538,0,0" 
+                VerticalAlignment="Top" 
+                Width="351" 
+                Background="#FFDAB9"
+                Foreground="Black" 
+                Height="29"
+                RenderTransformOrigin="0.534,6.696"/>
+        <Button x:Name="btnDel" 
+                Content="Удаление" 
+                Click ="Delete_Click" 
+                HorizontalAlignment="Left"
+                Margin="970,542,0,0" 
+                VerticalAlignment="Top"
+                Width="363" 
+                Background="#FFDAB9"
+                Foreground="Black"
+                Height="30"/>
+        <Label Content="Количество записей:" Margin="1038,22,162,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="17"/>
+        <Label x:Name="RowCount" Content="" HorizontalAlignment="Left" Margin="1203,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.145,0.145" FontFamily="Times New Roman" FontSize="17"/>
+        <CheckBox x:Name="checkBoxFilter" Content="Данные в архиве" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Left" Margin="919,30,0,0" VerticalAlignment="Top" IsThreeState="False" RenderTransformOrigin="2.039,0.499" />
+    </Grid>
+</Window>
